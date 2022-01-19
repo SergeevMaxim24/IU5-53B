@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Мороженое{% endblock %}
+
+{% block content %}
+    Today is {{ data.current_date }}
+<ul>
+    {% for icecream in data.icecreams %}
+       {% include 'qw.html' with elem=icecream %}
+    {% empty %}
+        <li>Список пуст</li>
+    {% endfor %}
+</ul>
+{% endblock %}

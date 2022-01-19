@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+
+{% block title %}Мороженное: {{ id }}{% endblock %}
+
+{% block content %}
+    <p>Название: {{ name }}</p>
+    <p>Цена: {{ price }}</p>
+    <ul>
+     <li><a href="{% url 'GetShop' id %}">Магазин </a></li>
+    </ul>
+{% endblock %}
