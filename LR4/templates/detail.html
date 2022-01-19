@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %} Мороженное : {{ data.id }}{% endblock %}
+
+{% block content %}
+    <ul>
+        Мороженное {{ data.id }}
+        {% if data.id == 1 %}
+             <img src="{% static 'images/korovka.png' %}">
+        {% elif data.id == 2 %}
+             <img src="{% static 'images/magnat.png' %}">
+        {% else %}
+             <img src="{% static 'images/pingvin.png' %}">
+        {% endif %}
+        <table border="1" width="100%" cellpadding="5">
+            <tr>
+                <th> Название</th>
+                <th> Цена </th>
+            </tr>
+            <tr>
+                {% for ice in data.icecream %}
+                  {% if ice.id == data.id %}
+                    <td>{{ ice.name }}</td>
+                    <td>{{ ice.price }}</td>
+                  {% endif %}
+               {% endfor %}
+            </tr>
+        </table>
+    </ul>
+{% endblock %}
